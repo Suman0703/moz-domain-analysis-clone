@@ -7,7 +7,6 @@ import BarChartCard from './BarChartCard';
 import CompetitorCard from './CompetitorCard';
 
 const Dashboard = () => {
-  // --- MOCK DATA ---
   const topPagesData = [
     { name: 'support.mozilla.org/en-US/kb/enable-and-disable-co...', score: '90' },
     { name: 'www.mozilla.org/', score: '89' },
@@ -78,61 +77,30 @@ const Dashboard = () => {
   ];
 
   return (
-    // Responsive padding added for slightly cleaner edges on mobile
     <div className="bg-[#F4F7F9] px-4 md:px-6 lg:px-8 pb-12">
-      
-      {/* Responsive Grid layout:
-        - 1 column on mobile (default)
-        - 2 columns on tablets/desktops (md:grid-cols-2)
-        - Gap spacing adjusts from gap-6 on mobile to gap-8 on desktop 
-      */}
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mt-8">
-        
-        {/* ROW 1: Links & Domains */}
-        <DataCard title="Top Pages by Links" description="The most important pages on mozilla.org based on Page Authority (PA), an algorithm of link metrics." col1Header="Page/URL" col2Header="PA" data={topPagesData} />
-        <DataCard title="Top Linking Domains" description="The top linking domains to mozilla.org based on Domain Authority (DA), a metric which predicts ranking potential based on links." col1Header="Domain" col2Header="DA" data={topDomainsData} />
+        <DataCard title="Top Pages by Links" description="The most important pages on mozilla.org based on PA." col1Header="Page/URL" col2Header="PA" data={topPagesData} />
+        <DataCard title="Top Linking Domains" description="The top linking domains to mozilla.org based on DA." col1Header="Domain" col2Header="DA" data={topDomainsData} />
 
-        {/* ROW 2: Chart & Link CTA */}
         <ChartCard />
-        <CtaBanner 
-          title="Want more link data?"
-          subtitle="Get instant access to our index of 35 trillion links."
-          buttonText="Try Moz Pro Free"
-        />
+        <CtaBanner title="Want more link data?" subtitle="Get instant access to our index of 35 trillion links." buttonText="Try Moz Pro Free" />
 
-        {/* ROW 3: Keywords by Clicks & Ranking */}
-        <DataCard title="Keywords by Estimated Clicks" description="Estimated clicks for top keywords, based on volume and CTR." col1Header="Keyword" col2Header="Visibility" data={keywordsByClicksData} isLink={false} />
-        <DataCard title="Top Ranking Keywords" description="Your top keywords for mozilla.org, sorted by ranking position." col1Header="Keyword" col2Header="Rank" data={topRankingKeywordsData} isLink={false} />
+        <DataCard title="Keywords by Estimated Clicks" description="Estimated clicks for top keywords." col1Header="Keyword" col2Header="Visibility" data={keywordsByClicksData} isLink={false} />
+        <DataCard title="Top Ranking Keywords" description="Your top keywords for mozilla.org." col1Header="Keyword" col2Header="Rank" data={topRankingKeywordsData} isLink={false} />
 
-        {/* ROW 4: Snippets & Branded Keywords */}
-        <EmptyStateCard title="Top Featured Snippets" description="Keywords mozilla.org ranks for that trigger a featured snippet." learnMoreLink="#" />
-        <DataCard title="Branded Keywords" description="The highest-volume keywords reflecting mozilla.org's brand." col1Header="Keyword" col2Header="Volume" data={brandedKeywordsData} isLink={false} />
+        <EmptyStateCard title="Top Featured Snippets" description="Keywords that trigger a featured snippet." learnMoreLink="#" />
+        <DataCard title="Branded Keywords" description="Highest-volume keywords for the brand." col1Header="Keyword" col2Header="Volume" data={brandedKeywordsData} isLink={false} />
 
-        {/* ROW 5: Bar Chart */}
         <BarChartCard />
+        <CtaBanner title="Want more keyword data?" subtitle="Database of over 500 million keywords." buttonText="Try Moz Pro Free" />
 
-        {/* ROW 6: Keyword CTA */}
-        <CtaBanner 
-          title="Want more keyword data?"
-          subtitle="Get instant access to our database of over 500 million keywords."
-          buttonText="Try Moz Pro Free"
-        />
-
-        {/* ROW 7: Competitors */}
         <CompetitorCard data={competitorsData} />
 
-        {/* ROW 8: Top Questions (Spans full width) */}
         <div className="md:col-span-2">
-          <DataCard title="Top Questions" description="Top questions mined from People Also Ask boxes for relevant keywords." col1Header="Question" col2Header="Relevance" data={topQuestionsData} isLink={false} />
+          <DataCard title="Top Questions" description="Top questions from People Also Ask boxes." col1Header="Question" col2Header="Relevance" data={topQuestionsData} isLink={false} />
         </div>
 
-        {/* ROW 9: Final CTA */}
-        <CtaBanner 
-          title="Ready to get started for free?"
-          subtitle="Make data-driven decisions to propel your search strategy and gain a competitive advantage."
-          buttonText="Check Domain Authority"
-        />
-
+        <CtaBanner title="Ready to get started for free?" subtitle="Make data-driven decisions for your search strategy." buttonText="Check Domain Authority" />
       </div>
     </div>
   );
