@@ -46,7 +46,7 @@ const Navbar = ({ setCurrentPage }) => {
       {/* 3. Desktop Navigation (Updated text-base and space-x-12) */}
       <div className="hidden md:flex space-x-12 text-gray-600 font-semibold text-base items-center h-full">
         
-        {/* Products */}
+       {/* Products */}
         <div className="relative h-full flex items-center">
           <button onClick={() => toggleMenu('products')} className={`flex items-center transition-colors h-full focus:outline-none ${activeMenu === 'products' ? 'text-gray-900' : 'hover:text-blue-600'}`}>
             Products <span className="text-[10px] ml-1.5 transition-transform duration-200" style={{ transform: activeMenu === 'products' ? 'rotate(180deg)' : 'rotate(0deg)' }}>v</span>
@@ -70,7 +70,7 @@ const Navbar = ({ setCurrentPage }) => {
           {activeMenu === 'learn' && <div className="absolute -bottom-[1px] left-1/2 -translate-x-1/2 w-4 h-4 bg-[#F8FAFB] border-t border-l border-gray-200 rotate-45 z-20"></div>}
         </div>
 
-        {/* BLOG */}
+        {/* BLOG (Standalone Link) */}
         <button 
           onClick={() => { setActiveMenu(null); setCurrentPage('404'); }} 
           className="hover:text-blue-600 h-full transition-colors focus:outline-none"
@@ -89,7 +89,7 @@ const Navbar = ({ setCurrentPage }) => {
       </div>
 
       <div className="flex items-center space-x-4 md:space-x-6">
-        <button className="text-[#0081c2] font-bold text-base hover:underline focus:outline-none">Log in</button>
+        <button className="text-[#0081c2] font-semibold text-[15px] hover:underline">Log in</button>
       </div>
 
       {/* 4. Responsive Mobile Drawer */}
@@ -103,29 +103,80 @@ const Navbar = ({ setCurrentPage }) => {
         </div>
       )}
 
-      {/* 5. MEGA MENUS (Same boxes, bigger header text inside) */}
+      {/* 5. MEGA MENUS (Full Code) */}
       {activeMenu && (
         <div className="hidden md:flex absolute top-[100%] left-1/2 -translate-x-1/2 w-[960px] max-w-[95vw] shadow-2xl border border-gray-200 z-10 overflow-hidden rounded-b-xl bg-white">
           <div className="w-2/3 bg-[#F8FAFB] p-10 grid grid-cols-3 gap-6 text-left">
             
+            {/* Products Content */}
             {activeMenu === 'products' && (
               <>
                 <div className="space-y-8">
-                  <div className="group cursor-pointer"><h4 className="font-bold text-gray-900 text-lg mb-1.5 group-hover:text-blue-600">Moz Pro</h4><p className="text-[13px] text-gray-600 leading-relaxed">Your all-in-one suite of SEO essentials.</p></div>
-                  <div className="group cursor-pointer"><h4 className="font-bold text-gray-900 text-lg mb-1.5 group-hover:text-blue-600">Moz API</h4><p className="text-[13px] text-gray-600 leading-relaxed">Power your SEO with link data.</p></div>
+                  <div className="group cursor-pointer"><h4 className="font-semibold text-gray-900 text-lg mb-1.5 group-hover:text-blue-600">Moz Pro</h4><p className="text-[13px] text-gray-600 leading-relaxed">Your all-in-one suite of SEO essentials.</p></div>
+                  <div className="group cursor-pointer"><h4 className="font-semibold text-gray-900 text-lg mb-1.5 group-hover:text-blue-600">Moz API</h4><p className="text-[13px] text-gray-600 leading-relaxed">Power your SEO with link data.</p></div>
                 </div>
                 <div className="space-y-8">
-                  <div className="group cursor-pointer"><h4 className="font-bold text-gray-900 text-lg mb-1.5 group-hover:text-blue-600">Moz Local</h4><p className="text-[13px] text-gray-600 leading-relaxed">Raise your local visibility with ease.</p></div>
-                  <div className="group cursor-pointer"><h4 className="font-bold text-gray-900 text-lg mb-1.5 group-hover:text-blue-600">Compare</h4><p className="text-[13px] text-gray-600 leading-relaxed">Find your best SEO product match.</p></div>
+                  <div className="group cursor-pointer"><h4 className="font-semibold text-gray-900 text-lg mb-1.5 group-hover:text-blue-600">Moz Local</h4><p className="text-[13px] text-gray-600 leading-relaxed">Raise your local visibility with ease.</p></div>
+                  <div className="group cursor-pointer"><h4 className="font-semibold text-gray-900 text-lg mb-1.5 group-hover:text-blue-600">Compare</h4><p className="text-[13px] text-gray-600 leading-relaxed">Find your best SEO product match.</p></div>
                 </div>
                 <div className="space-y-8">
-                  <div className="group cursor-pointer"><h4 className="font-bold text-gray-900 text-lg mb-1.5 group-hover:text-blue-600">STAT</h4><p className="text-[13px] text-gray-600 leading-relaxed">Enterprise SERP tracking and analytics.</p></div>
+                  <div className="group cursor-pointer"><h4 className="font-semibold text-gray-900 text-lg mb-1.5 group-hover:text-blue-600">STAT</h4><p className="text-[13px] text-gray-600 leading-relaxed">Enterprise SERP tracking and analytics.</p></div>
+                  <div className="group cursor-pointer"><h4 className="font-semibold text-gray-900 text-lg mb-1.5 group-hover:text-blue-600">Moz Data</h4><p className="text-[13px] text-gray-600 leading-relaxed">Custom data solutions for search.</p></div>
                 </div>
               </>
             )}
-            {/* Same structure for tools, learn, why */}
+
+            {/* Tools Content */}
+            {activeMenu === 'tools' && (
+              <>
+                <div className="space-y-8">
+                  <div className="group cursor-pointer"><h4 className="font-semibold text-gray-900 text-lg mb-1.5 group-hover:text-blue-600">Domain Analysis</h4><p className="text-[13px] text-gray-600 leading-relaxed">Top competitive SEO metrics like DA.</p></div>
+                  <div className="group cursor-pointer"><h4 className="font-semibold text-gray-900 text-lg mb-1.5 group-hover:text-blue-600">Competitive Research</h4><p className="text-[13px] text-gray-600 leading-relaxed">Insights on your search competitors.</p></div>
+                </div>
+                <div className="space-y-8">
+                  <div className="group cursor-pointer"><h4 className="font-semibold text-gray-900 text-lg mb-1.5 group-hover:text-blue-600">Keyword Explorer</h4><p className="text-[13px] text-gray-600 leading-relaxed">Find high-volume, traffic-driving keywords.</p></div>
+                  <div className="group cursor-pointer"><h4 className="font-semibold text-gray-900 text-lg mb-1.5 group-hover:text-blue-600">MozBar</h4><p className="text-[13px] text-gray-600 leading-relaxed">SEO metrics for free as you browse.</p></div>
+                </div>
+                <div className="space-y-8">
+                  <div className="group cursor-pointer"><h4 className="font-semibold text-gray-900 text-lg mb-1.5 group-hover:text-blue-600">Link Explorer</h4><p className="text-[13px] text-gray-600 leading-relaxed">Backlink data from 40 trillion links.</p></div>
+                </div>
+              </>
+            )}
+
+            {/* Learn Content */}
+            {activeMenu === 'learn' && (
+              <>
+                <div className="space-y-8">
+                  <div className="group cursor-pointer"><h4 className="font-semibold text-gray-900 text-lg mb-1.5 group-hover:text-blue-600">Beginner's Guide</h4><p className="text-[13px] text-gray-600 leading-relaxed">The famous introduction to SEO.</p></div>
+                  <div className="group cursor-pointer"><h4 className="font-semibold text-gray-900 text-lg mb-1.5 group-hover:text-blue-600">How-To Guides</h4><p className="text-[13px] text-gray-600 leading-relaxed">Step-by-step guides for SEO success.</p></div>
+                </div>
+                <div className="space-y-8">
+                  <div className="group cursor-pointer"><h4 className="font-semibold text-gray-900 text-lg mb-1.5 group-hover:text-blue-600">Learning Center</h4><p className="text-[13px] text-gray-600 leading-relaxed">Broaden your knowledge here.</p></div>
+                  <div className="group cursor-pointer"><h4 className="font-semibold text-gray-900 text-lg mb-1.5 group-hover:text-blue-600">Moz Academy</h4><p className="text-[13px] text-gray-600 leading-relaxed">Upskill and get certified in SEO.</p></div>
+                </div>
+                <div className="space-y-8">
+                  <div className="group cursor-pointer"><h4 className="font-semibold text-gray-900 text-lg mb-1.5 group-hover:text-blue-600">Webinars</h4><p className="text-[13px] text-gray-600 leading-relaxed">Industry experts share best practices.</p></div>
+                </div>
+              </>
+            )}
+
+            {/* Why Moz Content */}
+            {activeMenu === 'why' && (
+              <>
+                <div className="space-y-8">
+                  <div className="group cursor-pointer"><h4 className="font-semibold text-gray-900 text-lg mb-1.5 group-hover:text-blue-600">Digital Marketers</h4><p className="text-[13px] text-gray-600 leading-relaxed">Simplify tasks and grow traffic.</p></div>
+                </div>
+                <div className="space-y-8">
+                  <div className="group cursor-pointer"><h4 className="font-semibold text-gray-900 text-lg mb-1.5 group-hover:text-blue-600">Small Business</h4><p className="text-[13px] text-gray-600 leading-relaxed">Insights to make smarter decisions.</p></div>
+                </div>
+                <div className="space-y-8">
+                  <div className="group cursor-pointer"><h4 className="font-semibold text-gray-900 text-lg mb-1.5 group-hover:text-blue-600">The Moz Story</h4><p className="text-[13px] text-gray-600 leading-relaxed">Trusted for over 20 years in search.</p></div>
+                </div>
+              </>
+            )}
           </div>
 
+          {/* RIGHT SIDE CTA PANEL */}
           <div className="w-1/3 bg-[#171228] p-8 flex flex-col items-center text-center text-white justify-center">
             <h3 className="text-[22px] font-bold mb-6 leading-tight">Ready to boost your SEO?</h3>
             <button className="bg-[#FFD15C] text-gray-900 font-bold py-2 px-6 rounded-full hover:bg-yellow-400 transition shadow-sm">Start Free Trial</button>
